@@ -1,0 +1,51 @@
+  import java.util.Scanner;
+
+public class ConversorDeMoneda {
+
+	public static void main(String[] args) {
+		
+		EXTERNA:
+		while(true) {
+			System.out.println("Conversor De Monedad");
+			System.out.println(" 1 - Soles Peruanos a Dolares\n"
+					+ "2 - pesos Mexicanos a Dolares\n"
+					+ "3 - Pesos Colombianos a Dolares\n"
+					+ "4 - Salir");
+			System.out.println("Ingrese Una Opcion ");
+			Scanner Leer = new Scanner(System.in);
+			char opcion = Leer.next().charAt(0);
+			
+			switch(opcion) {
+			case '1':
+				convertir(3.59, "soles Peruano");
+				break;
+			case'2':
+				convertir(16.69, "Peso Mexicano");
+				break;
+			case'3':
+				convertir(3941.00, "Peso Colombiano");
+				break;
+			case'4':
+				System.out.println("Cerrando Programa");
+				break EXTERNA;
+				System.out.println("Opcion Incorrecta");
+				break;
+			}
+		}
+		
+	}
+	
+	static void convertir(double valorDollar, String pais ) {
+		Scanner Leer = new Scanner(System.in);
+		System.out.printf("Ingrese la cantidad de %s :", pais);
+		double CantidadDeMoneda = Leer.nextDouble();
+		
+		double dolares = CantidadDeMoneda / valorDollar;
+		
+		dolares = (double) Math.round(dolares * 100d)/100; 
+		
+		System.out.println("--------------------------------------");
+		System.out.println("      tienes $"+dolares+" Dolares     ");
+		System.out.println("--------------------------------------");
+	}
+}
